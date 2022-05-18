@@ -20,7 +20,7 @@ print("O numero de vertives é: ", n_vertice())
 #  B. Numero de arestas
 def n_arestas() :
     return len(grafo) - 1
-print("O número de arestas é: ", n_arestas())
+print("O número de arestas é: ", n_arestas(), "\n")
 
 
 #  C. grau Maximo
@@ -34,7 +34,7 @@ def grau_maximo():
 
     #Pega o numero mais frequente no vetor
     return mode(nums)
-print("Vétice com grau Maximo: ", grau_maximo())
+print("Vétice com grau Maximo: ", grau_maximo(), "\n")
 
 def numsvet():
     nums = []
@@ -43,7 +43,6 @@ def numsvet():
         nums.append(grafo[i][0:3])
     return  nums
 
-print(numsvet())
 
 
 def matriz_adj():
