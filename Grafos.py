@@ -1,4 +1,6 @@
 import numpy as np
+from statistics import mode
+from collections import Counter
 
 texto = open('Grafo.txt')  # Lê um arquivo txt
 grafo = texto.readlines()  # readLijnes tranforma cada linha em uma lista
@@ -12,18 +14,54 @@ linhasGrafo = len(grafo)  # retorna o indice maximo
 def n_vertice():
     numeroVertice = (grafo[0])
     return numeroVertice
-
-
 print("O numero de vertives é: ", n_vertice())
+
 
 #  B. Numero de arestas
 def n_arestas() :
     return len(grafo) - 1
-
 print("O número de arestas é: ", n_arestas())
 
 
 #  C. grau Maximo
+def grau_maximo():
+    nums = []
+    #Adiciona todos os numeros separadamente num vetor
+    for i in range(1, len(grafo)):
+        nums.append(grafo[i][0:1])
+        nums.append(grafo[i][2:3])
+
+
+    #Pega o numero mais frequente no vetor
+    return mode(nums)
+print("Vétice com grau Maximo: ", grau_maximo())
+
+def numsvet():
+    nums = []
+    # Adiciona todos os numeros separadamente num vetor
+    for i in range(1, len(grafo)):
+        nums.append(grafo[i][0:3])
+    return  nums
+
+print(numsvet())
+
+
+def matriz_adj():
+    ma = np.full((int(n_vertice()), int(n_vertice())), 0)
+    a = []
+    for i in range(int(n_arestas())):
+        l = int(numsvet()[i][0:1])-1
+        c = int(numsvet()[i][2:3])-1
+
+        ma[l, c] = 1
+
+    return ma
+
+print("Matriz de Adjacencia: \n", matriz_adj())
+
+
+
+#print(grafo[2])
 ''''
 def grau_max():
     i = 1
@@ -67,7 +105,7 @@ print("Grau Maximo: ", grau_max())
 
 
 
-'''
+
 
 #  D. grau Maximo
 
@@ -101,7 +139,7 @@ print(matriz)
 print(grafo[1])
 
 
-
+'''
 
 
 
